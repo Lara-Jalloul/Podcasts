@@ -6,5 +6,6 @@ return [
     'AUTHENTICATION_LOGOUT' => 'User logged out successfully.',
     'LOGIN_PASSWORD_INVALID' => 'Invalid login details.',
     'PODCAST_STORED' => 'Podcast added successfully.',
-    'PODCAST_DELETED' => 'Podcast deleted successfully.'
+    'PODCAST_DELETED' => 'Podcast deleted successfully.',
+    'PODCAST_UPDATED' => 'Podcast updated successfully.'
 ];

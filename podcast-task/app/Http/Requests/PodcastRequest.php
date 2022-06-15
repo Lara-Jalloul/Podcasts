@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
 
 
-class StorePodcastRequest extends FormRequest
+class PodcastRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,13 +30,6 @@ class StorePodcastRequest extends FormRequest
             'title' => 'required',
             'author' => 'required',
             'description' => 'required'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            "required" => ":attribute is required",
         ];
     }
 

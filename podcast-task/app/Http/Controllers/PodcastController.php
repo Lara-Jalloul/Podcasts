@@ -31,4 +31,11 @@ class PodcastController extends Controller
 
         return response()->success(__('strings.PODCAST_UPDATED'), $response, 200);
     }
+
+    public function index()
+    {
+        $response['podcast'] = PodcastResource::collection(Podcast::all());
+
+        return response()->success(__('strings.PODCAST_RETRIEVED'), $response, 200);
+    }
 }

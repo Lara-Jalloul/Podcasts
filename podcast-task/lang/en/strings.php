@@ -7,5 +7,6 @@ return [
     'LOGIN_PASSWORD_INVALID' => 'Invalid login details.',
     'PODCAST_STORED' => 'Podcast added successfully.',
     'PODCAST_DELETED' => 'Podcast deleted successfully.',
-    'PODCAST_UPDATED' => 'Podcast updated successfully.'
+    'PODCAST_UPDATED' => 'Podcast updated successfully.',
+    'PODCAST_RETRIEVED' => 'Podcast retrieved successfully.'
 ];

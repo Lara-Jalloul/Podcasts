@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EpisodeRequest;
 use App\Http\Resources\EpisodeResource;
 use App\Models\Episode;
-use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
 {

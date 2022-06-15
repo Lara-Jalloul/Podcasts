@@ -9,5 +9,6 @@ return [
     'PODCAST_DELETED' => 'Podcast deleted successfully.',
     'PODCAST_UPDATED' => 'Podcast updated successfully.',
     'PODCAST_RETRIEVED' => 'Podcast retrieved successfully.',
-    'EPISODE_STORED' => 'Episode added successfully.'
+    'EPISODE_STORED' => 'Episode added successfully.',
+    'EPISODE_DELETED' => 'Episode deleted successfully.'
 ];

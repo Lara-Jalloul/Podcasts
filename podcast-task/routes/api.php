@@ -33,4 +33,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/podcast', [PodcastController::class, 'index']);
 
     Route::post('/episode', [EpisodeController::class, 'store']);
+    Route::delete('/episode/{episode}', [EpisodeController::class, 'delete']);
 });

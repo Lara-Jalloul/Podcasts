@@ -15,4 +15,11 @@ class EpisodeController extends Controller
 
         return response()->success(__('strings.EPISODE_STORED'), $response, 200);
     }
+
+    public function delete(Episode $episode)
+    {
+        $episode->delete();
+
+        return response()->success(__('strings.EPISODE_DELETED'), [], 200);
+    }
 }

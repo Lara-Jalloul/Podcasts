@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PodcastRequest;
 use App\Http\Resources\PodcastResource;
 use App\Models\Podcast;
-use Illuminate\Http\Request;
 
 class PodcastController extends Controller
 {
     public function store(PodcastRequest $request)
     {
+
         $response['podcast'] = new PodcastResource(Podcast::create($request->validated()));
 
         return response()->success(__('strings.PODCAST_STORED'), $response, 200);

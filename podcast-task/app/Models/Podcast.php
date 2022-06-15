@@ -14,4 +14,9 @@ class Podcast extends Model
     protected $fillable = [
         'title', 'author', 'description'
     ];
+
+    public function episode(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Episode::class);
+    }
 }

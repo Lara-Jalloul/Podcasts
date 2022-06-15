@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -25,8 +26,11 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', [UserController::class, 'logout']);
+
     Route::post('/podcast', [PodcastController::class, 'store']);
     Route::delete('/podcast/{podcast}', [PodcastController::class, 'delete']);
     Route::put('/podcast/{podcast}', [PodcastController::class, 'update']);
     Route::get('/podcast', [PodcastController::class, 'index']);
+
+    Route::post('/episode', [EpisodeController::class, 'store']);
 });

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Podcast;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        for($i=0;$i<=10;$i++){
+            Podcast::create([
+                'title'=>"On Purpose".$i,
+                'author'=>"Jay Shetty".$i,
+                'description'=>"desc".$i,
+            ]);
+        }
     }
 }

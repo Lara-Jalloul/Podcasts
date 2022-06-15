@@ -26,4 +26,6 @@ Route::post('/login', [UserController::class, 'login']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', [UserController::class, 'logout']);
     Route::post('/podcast', [PodcastController::class, 'store']);
+    Route::delete('/podcast/{id}', [PodcastController::class, 'delete']);
+
 });

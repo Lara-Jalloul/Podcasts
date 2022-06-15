@@ -20,4 +20,11 @@ class PodcastController extends Controller
 
         return response()->success(__('strings.PODCAST_STORED'), $response, 200);
     }
+
+    public function delete($id)
+    {
+        Podcast::where('id', $id)->firstorfail()->delete();
+
+        return response()->success(__('strings.PODCAST_DELETED'), [], 200);
+    }
 }

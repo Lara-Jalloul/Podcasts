@@ -21,4 +21,13 @@ class EpisodeController extends Controller
 
         return response()->success(__('strings.EPISODE_DELETED'), [], 200);
     }
+
+    public function update(EpisodeRequest $request, Episode $episode)
+    {
+        $episode->update($request->validated());
+
+        $response['podcast'] = new EpisodeResource($episode);
+
+        return response()->success(__('strings.EPISODE_UPDATED'), $response, 200);
+    }
 }

@@ -34,4 +34,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/episode', [EpisodeController::class, 'store']);
     Route::delete('/episode/{episode}', [EpisodeController::class, 'delete']);
+    Route::put('/episode/{episode}', [EpisodeController::class, 'update']);
 });

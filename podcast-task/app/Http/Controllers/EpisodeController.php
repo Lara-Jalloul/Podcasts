@@ -26,8 +26,22 @@ class EpisodeController extends Controller
     {
         $episode->update($request->validated());
 
-        $response['podcast'] = new EpisodeResource($episode);
+        $response['episode'] = new EpisodeResource($episode);
 
         return response()->success(__('strings.EPISODE_UPDATED'), $response, 200);
+    }
+
+    public function index()
+    {
+        $response['episode'] = EpisodeResource::collection(Episode::all());
+
+        return response()->success(__('strings.EPISODES_RETRIEVED'), $response, 200);
+    }
+
+    public function show(Episode $episode)
+    {
+        $response['episode'] = new EpisodeResource($episode);
+
+        return response()->success(__('strings.EPISODE_RETRIEVED'), $response, 200);
     }
 }

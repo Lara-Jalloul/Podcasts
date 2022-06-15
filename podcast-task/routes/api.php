@@ -31,8 +31,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/podcast/{podcast}', [PodcastController::class, 'delete']);
     Route::put('/podcast/{podcast}', [PodcastController::class, 'update']);
     Route::get('/podcast', [PodcastController::class, 'index']);
+    Route::get('/podcast/{podcast}', [PodcastController::class, 'show']);
 
     Route::post('/episode', [EpisodeController::class, 'store']);
     Route::delete('/episode/{episode}', [EpisodeController::class, 'delete']);
     Route::put('/episode/{episode}', [EpisodeController::class, 'update']);
+    Route::get('/episode', [EpisodeController::class, 'index']);
+    Route::get('/episode/{episode}', [EpisodeController::class, 'show']);
 });

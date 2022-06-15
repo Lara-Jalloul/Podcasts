@@ -36,6 +36,13 @@ class PodcastController extends Controller
     {
         $response['podcast'] = PodcastResource::collection(Podcast::all());
 
+        return response()->success(__('strings.PODCASTS_RETRIEVED'), $response, 200);
+    }
+
+    public function show(Podcast $podcast)
+    {
+        $response['podcast'] = new PodcastResource($podcast);
+
         return response()->success(__('strings.PODCAST_RETRIEVED'), $response, 200);
     }
 }

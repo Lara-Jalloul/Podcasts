@@ -11,23 +11,22 @@ class PodcastController extends Controller
 {
     public function store(PodcastRequest $request)
     {
-        $response['podcast'] = new PodcastResource(Podcast::create($request->validated()));
-
+        $response['podcasts'] = new PodcastResource(Podcast::create($request->validated()));
         return response()->success(__('strings.PODCAST_STORED'), $response, 200);
     }
 
     public function delete(Podcast $podcast)
     {
         $podcast->delete();
-
         return response()->success(__('strings.PODCAST_DELETED'), [], 200);
+
+        return response()->success(__('strings.PODCAST_NOT_FOUND'), [], 404);
     }
 
     public function update(PodcastRequest $request, Podcast $podcast)
     {
         $podcast->update($request->validated());
-
-        $response['podcast'] = new PodcastResource($podcast);
+        $response['podcasts'] = new PodcastResource($podcast);
 
         return response()->success(__('strings.PODCAST_UPDATED'), $response, 200);
     }
@@ -35,7 +34,6 @@ class PodcastController extends Controller
     public function index(Request $request)
     {
         $podcasts = Podcast::offset($request->offset ?? 0)->limit($request->limit ?? 10)->get();
-
         $response['podcasts'] = PodcastResource::collection($podcasts);
 
         return response()->success(__('strings.PODCASTS_RETRIEVED'), $response, 200);
@@ -43,7 +41,7 @@ class PodcastController extends Controller
 
     public function show(Podcast $podcast)
     {
-        $response['podcast'] = new PodcastResource($podcast);
+        $response['podcasts'] = new PodcastResource($podcast);
 
         return response()->success(__('strings.PODCAST_RETRIEVED'), $response, 200);
     }

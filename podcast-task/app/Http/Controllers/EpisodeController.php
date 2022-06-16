@@ -10,8 +10,8 @@ class EpisodeController extends Controller
 {
     public function store(EpisodeRequest $request)
     {
-        $response['episode'] = new EpisodeResource(Episode::create($request->validated()));
-
+        $response['episodes'] = new EpisodeResource(Episode::create($request->validated()));
+        
         return response()->success(__('strings.EPISODE_STORED'), $response, 200);
     }
 
@@ -25,22 +25,21 @@ class EpisodeController extends Controller
     public function update(EpisodeRequest $request, Episode $episode)
     {
         $episode->update($request->validated());
-
-        $response['episode'] = new EpisodeResource($episode);
+        $response['episodes'] = new EpisodeResource($episode);
 
         return response()->success(__('strings.EPISODE_UPDATED'), $response, 200);
     }
 
     public function index()
     {
-        $response['episode'] = EpisodeResource::collection(Episode::all());
+        $response['episodes'] = EpisodeResource::collection(Episode::all());
 
         return response()->success(__('strings.EPISODES_RETRIEVED'), $response, 200);
     }
 
     public function show(Episode $episode)
     {
-        $response['episode'] = new EpisodeResource($episode);
+        $response['episodes'] = new EpisodeResource($episode);
 
         return response()->success(__('strings.EPISODE_RETRIEVED'), $response, 200);
     }

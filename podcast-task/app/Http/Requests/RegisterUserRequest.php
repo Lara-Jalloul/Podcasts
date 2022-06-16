@@ -38,26 +38,14 @@ class RegisterUserRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            "required" => ":attribute is required",
-            "email" => ":attribute is unvalid",
-            "unique" => ":attribute should be unique",
-            "min"=>":attribute should be minimum 6 characters",
-            "regex"=>":attribute must contain at least one lowercase, uppercase, digit and special character"
-        ];
-    }
-
     protected function failedValidation(Validator $validator)
     {
         $errors = collect($validator->errors());
         $errors = $errors->collapse();
         $response = response()->json([
-            'success' => false,
-            'message' => 'Error Validation',
+            'message' => 'Bad Request. Failed to validate!',
             'errors' => $errors
-        ]);
+        ],400);
         throw (new ValidationException($validator, $response));
     }
 }

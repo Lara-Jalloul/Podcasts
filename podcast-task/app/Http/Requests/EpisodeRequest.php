@@ -38,10 +38,9 @@ class EpisodeRequest extends FormRequest
         $errors = collect($validator->errors());
         $errors = $errors->collapse();
         $response = response()->json([
-            'success' => false,
-            'message' => 'Error Validation',
+            'message' => 'Bad Request. Failed to validate!n',
             'errors' => $errors
-        ]);
+        ],400);
         throw (new ValidationException($validator, $response));
     }
 }

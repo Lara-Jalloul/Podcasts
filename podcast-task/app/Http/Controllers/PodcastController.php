@@ -12,15 +12,15 @@ class PodcastController extends Controller
     public function store(PodcastRequest $request)
     {
         $response['podcasts'] = new PodcastResource(Podcast::create($request->validated()));
+
         return response()->success(__('strings.PODCAST_STORED'), $response, 200);
     }
 
     public function delete(Podcast $podcast)
     {
         $podcast->delete();
-        return response()->success(__('strings.PODCAST_DELETED'), [], 200);
 
-        return response()->success(__('strings.PODCAST_NOT_FOUND'), [], 404);
+        return response()->success(__('strings.PODCAST_DELETED'), [], 200);
     }
 
     public function update(PodcastRequest $request, Podcast $podcast)
